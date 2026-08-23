@@ -1,0 +1,629 @@
+[
+  {
+    "scheme_id": "csss_college_university",
+    "name": "Central Sector Scheme of Scholarship for College and University Students",
+    "government_level": "Central",
+    "ministry": "Department of Higher Education",
+    "category": "central_scholarship",
+    "target_groups": ["General", "OBC", "SC", "ST", "EBC", "DNT"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "higher_education",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must be above the 80th percentile of successful candidates in their Class 12 stream"
+      ]
+    },
+    "benefits": "Financial assistance to meet a part of their day-to-day expenses while pursuing higher studies.",
+    "documents_required": [
+      "Aadhaar Card",
+      "Class 12 Marksheet",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Register on the National Scholarship Portal (NSP)",
+      "Fill the application form and upload documents",
+      "Submit for institutional verification"
+    ],
+    "official_source_url": "https://rules.myscheme.gov.in/en/check-eligibility/csss-cus",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pm_yasasvi_post_matric",
+    "name": "PM-YASASVI: Post-Matric Scholarship for OBC, EBC and DNT Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "central_scholarship",
+    "target_groups": ["OBC", "EBC", "DNT"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "OBC/EBC/DNT",
+      "income_max": "TODO_VERIFY",
+      "education_level": "post-matric",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": []
+    },
+    "benefits": "Provides financial assistance to OBC, EBC and DNT students studying at post-matriculation or post-secondary stage.",
+    "documents_required": [
+      "Caste Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the respective State/UT portal or National Scholarship Portal"
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pm_yasasvi_top_class",
+    "name": "PM-YASASVI: Top Class College Education for OBC, EBC and DNT Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "central_scholarship",
+    "target_groups": ["OBC", "EBC", "DNT"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "OBC/EBC/DNT",
+      "income_max": "TODO_VERIFY",
+      "education_level": "higher_education",
+      "course_level": null,
+      "institution_type": "notified_institutions",
+      "other_conditions": [
+        "Admitted to eligible higher-education institutions"
+      ]
+    },
+    "benefits": "Full financial support for OBC, EBC and DNT students to pursue degree and post-degree courses in top class institutions.",
+    "documents_required": [
+      "Admission proof in a notified institution",
+      "Income Certificate",
+      "Caste Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply via National Scholarship Portal (NSP) after taking admission in a notified institute."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "post_matric_sc",
+    "name": "Post-Matric Scholarship for Scheduled Caste Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "central_scholarship",
+    "target_groups": ["SC"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "SC",
+      "income_max": "TODO_VERIFY",
+      "education_level": "post-matric",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Studies after Class 10"
+      ]
+    },
+    "benefits": "Financial assistance to SC students for studying in post-matric classes.",
+    "documents_required": [
+      "SC Caste Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the respective State/UT portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "post_matric_st",
+    "name": "Post-Matric Scholarship for Scheduled Tribe Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Tribal Affairs",
+    "category": "central_scholarship",
+    "target_groups": ["ST"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "ST",
+      "income_max": "TODO_VERIFY",
+      "education_level": "post-matric",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": []
+    },
+    "benefits": "Financial assistance to ST students studying at post-matriculation or post-secondary stage.",
+    "documents_required": [
+      "ST Caste Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "post_matric_pwd",
+    "name": "Post-Matric Scholarship for Students with Disabilities",
+    "government_level": "Central",
+    "ministry": "Department of Empowerment of Persons with Disabilities",
+    "category": "central_scholarship",
+    "target_groups": ["disability"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "post-matric",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must have a benchmark disability"
+      ]
+    },
+    "benefits": "Scholarship for pursuing post-matric courses to students with disabilities.",
+    "documents_required": [
+      "Disability Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "top_class_sc",
+    "name": "Top Class Education for Scheduled Caste Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "central_scholarship",
+    "target_groups": ["SC"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "SC",
+      "income_max": "TODO_VERIFY",
+      "education_level": "higher_education",
+      "course_level": null,
+      "institution_type": "notified_institutions",
+      "other_conditions": [
+        "Must have secured admission in a notified institution based on academic criteria (TODO_VERIFY)"
+      ]
+    },
+    "benefits": "Full financial support to SC students pursuing studies beyond 12th class.",
+    "documents_required": [
+      "Admission proof in a notified institution",
+      "SC Caste Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "national_fellowship_sc",
+    "name": "Central Sector National Fellowship for SC Students",
+    "government_level": "Central",
+    "ministry": "Ministry of Social Justice and Empowerment",
+    "category": "central_scholarship",
+    "target_groups": ["SC"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": "SC",
+      "income_max": null,
+      "education_level": "PhD/M.Phil",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must have fulfilled specific academic criteria (TODO_VERIFY)"
+      ]
+    },
+    "benefits": "Fellowship in the form of financial assistance to students belonging to SC category to pursue higher studies leading to M.Phil., Ph.D.",
+    "documents_required": [
+      "Post-graduation marksheet",
+      "SC Caste Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply online when the call for applications is announced."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pg_indira_gandhi_sgc",
+    "name": "Post Graduate Indira Gandhi Scholarship for Single Girl Child",
+    "government_level": "Central",
+    "ministry": "University Grants Commission (UGC)",
+    "category": "central_scholarship",
+    "target_groups": ["female"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": "TODO_VERIFY",
+      "gender": "female",
+      "category": null,
+      "income_max": null,
+      "education_level": "first_year_pg",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must be a single girl child in the family"
+      ]
+    },
+    "benefits": "To support post-graduate education of single girl children.",
+    "documents_required": [
+      "Affidavit regarding Single Girl Child status",
+      "Admission proof for 1st year PG",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pg_merit_university_rank",
+    "name": "Post Graduate Merit Scholarship for University Rank Holders",
+    "government_level": "Central",
+    "ministry": "University Grants Commission (UGC)",
+    "category": "central_scholarship",
+    "target_groups": [],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": null,
+      "education_level": "entering_pg",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "University rank holder (TODO_VERIFY exact rank cutoff)"
+      ]
+    },
+    "benefits": "Promoting post-graduate education for meritorious students.",
+    "documents_required": [
+      "Rank Certificate from the University",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pg_scholarship_gate_gpat",
+    "name": "Post Graduate Scholarship for GATE/GPAT Qualified Students (AICTE/UGC)",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "central_scholarship",
+    "target_groups": [],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": null,
+      "education_level": "PG_technical",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must be GATE or GPAT qualified"
+      ]
+    },
+    "benefits": "Ensures the development of technical education by providing financial assistance to qualified students.",
+    "documents_required": [
+      "GATE/GPAT Scorecard",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply online on the AICTE portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pm_scholarship_capf",
+    "name": "Prime Minister's Scholarship Scheme for Wards/Widows of Central Armed Police Forces & Assam Rifles",
+    "government_level": "Central",
+    "ministry": "Ministry of Home Affairs",
+    "category": "central_scholarship",
+    "target_groups": [],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": null,
+      "education_level": "higher_education",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Ward/widow of specified CAPF/Assam Rifles personnel"
+      ]
+    },
+    "benefits": "Encourages higher technical and professional education for the dependent wards and widows of CAPF & AR Personnel.",
+    "documents_required": [
+      "Service Certificate/PPO",
+      "Dependent Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "pm_internship_scheme",
+    "name": "Prime Minister's Internship Scheme",
+    "government_level": "Central",
+    "ministry": "Ministry of Corporate Affairs",
+    "category": "central_scholarship",
+    "target_groups": ["youth"],
+    "eligibility": {
+      "state": null,
+      "age_min": "TODO_VERIFY",
+      "age_max": "TODO_VERIFY",
+      "gender": null,
+      "category": null,
+      "income_max": null,
+      "education_level": "TODO_VERIFY",
+      "course_level": null,
+      "institution_type": null,
+      "other_conditions": [
+        "Must be an Indian Citizen"
+      ]
+    },
+    "benefits": "Provides internship opportunities in top companies.",
+    "documents_required": [
+      "Aadhaar Card",
+      "Educational certificates",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply on the official portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "aicte_pragati_degree",
+    "name": "AICTE Pragati Scholarship — Girl Students (Technical Degree)",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "aicte_technical",
+    "target_groups": ["female"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": "female",
+      "category": null,
+      "income_max": 800000,
+      "education_level": "degree",
+      "course_level": "first_year_or_lateral_second_year",
+      "institution_type": "aicte_approved",
+      "other_conditions": [
+        "Must not already receive another government/AICTE scholarship",
+        "Must not already receive other financial assistance",
+        "Fewer than two siblings must have already received this scholarship"
+      ]
+    },
+    "benefits": "Provides financial support to female students for pursuing technical education.",
+    "documents_required": [
+      "Aadhaar Card",
+      "Admission letter",
+      "Income Certificate"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://rules.myscheme.gov.in/en/check-eligibility/psgs-deg",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "verified"
+  },
+  {
+    "scheme_id": "aicte_pragati_diploma",
+    "name": "AICTE Pragati Scholarship — Girl Students (Technical Diploma)",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "aicte_technical",
+    "target_groups": ["female"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": "female",
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "diploma",
+      "course_level": "diploma",
+      "institution_type": "aicte_approved",
+      "other_conditions": []
+    },
+    "benefits": "Assistance for Advancement of Girls pursuing Technical Education (Diploma).",
+    "documents_required": [
+      "Aadhaar Card",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "aicte_saksham_degree",
+    "name": "AICTE Saksham Scholarship — Specially-Abled Students (Degree)",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "aicte_technical",
+    "target_groups": ["disability"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "degree",
+      "course_level": "degree",
+      "institution_type": "aicte_approved",
+      "other_conditions": [
+        "Students with specified disabilities"
+      ]
+    },
+    "benefits": "Encouragement and support to specially-abled children to pursue technical education.",
+    "documents_required": [
+      "Disability Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "aicte_saksham_diploma",
+    "name": "AICTE Saksham Scholarship — Specially-Abled Students (Diploma)",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "aicte_technical",
+    "target_groups": ["disability"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "diploma",
+      "course_level": "diploma",
+      "institution_type": "aicte_approved",
+      "other_conditions": [
+        "Students with specified disabilities"
+      ]
+    },
+    "benefits": "Encouragement and support to specially-abled children to pursue technical diploma.",
+    "documents_required": [
+      "Disability Certificate",
+      "Income Certificate",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  },
+  {
+    "scheme_id": "aicte_swanath",
+    "name": "AICTE Swanath Scholarship Scheme",
+    "government_level": "Central",
+    "ministry": "AICTE",
+    "category": "aicte_technical",
+    "target_groups": ["vulnerable"],
+    "eligibility": {
+      "state": null,
+      "age_min": null,
+      "age_max": null,
+      "gender": null,
+      "category": null,
+      "income_max": "TODO_VERIFY",
+      "education_level": "technical_education",
+      "course_level": null,
+      "institution_type": "aicte_approved",
+      "other_conditions": [
+        "Vulnerable category (TODO_VERIFY - exact list)"
+      ]
+    },
+    "benefits": "Financial support to orphans, wards of parents died due to Covid-19, wards of Armed Forces and Central Paramilitary Forces martyred in action.",
+    "documents_required": [
+      "Relevant certificates to prove vulnerability status",
+      "TODO_VERIFY"
+    ],
+    "application_process": [
+      "Apply through the National Scholarship Portal."
+    ],
+    "official_source_url": "https://www.myscheme.gov.in/",
+    "source_name": "myScheme",
+    "last_verified_date": "2026-08-23",
+    "verification_status": "needs_verification"
+  }
+]
