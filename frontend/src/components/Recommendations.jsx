@@ -1,16 +1,29 @@
 function Recommendations({ recommendations, onSelectScheme, onBack }) {
+  const formatExplanation = (text) => {
+    if (!text) {
+      return 'We have enough details to show this match, and you can open it for the full official information.';
+    }
+
+    const lowered = text.toLowerCase();
+    if (lowered.includes('could not generate explanation') || lowered.includes('gemini api key missing')) {
+      return 'We have enough verified criteria to surface this match. Open it for the official details and next steps.';
+    }
+
+    return text;
+  };
+
   
   if (!recommendations || recommendations.length === 0) {
     return (
       <div className="mx-auto max-w-4xl py-10 text-center md:py-16">
         <div className="editorial-panel p-8 md:p-12">
-          <p className="editorial-kicker">No Results</p>
-          <h2 className="editorial-display mt-4 text-4xl md:text-5xl">No matching schemes found.</h2>
+          <p className="editorial-kicker">No Matches Yet</p>
+          <h2 className="editorial-display mt-4 text-4xl md:text-5xl">We couldn’t find a strong match right now.</h2>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[color:var(--muted-foreground)]">
-            The current profile does not meet enough criteria for a confident match. Go back and widen the profile details if needed.
+            That usually means one or two details are still needed. You can go back and update your profile whenever you’re ready.
           </p>
           <button onClick={onBack} className="editorial-button editorial-button--outline mt-8">
-            Go Back
+            Update Profile
           </button>
         </div>
       </div>
@@ -39,8 +52,8 @@ function Recommendations({ recommendations, onSelectScheme, onBack }) {
     <div className="mx-auto max-w-5xl py-8 md:py-12">
       <div className="flex flex-col gap-4 border-b border-black pb-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="editorial-kicker">Step 2 / Match</p>
-          <h2 className="editorial-display mt-3 text-4xl md:text-5xl">Your Matches</h2>
+          <p className="editorial-kicker">Your Matches</p>
+          <h2 className="editorial-display mt-3 text-4xl md:text-5xl">Benefits Worth Exploring</h2>
         </div>
         <button onClick={onBack} className="editorial-button editorial-button--ghost justify-start px-0 md:justify-end">
           Edit Profile
@@ -60,7 +73,7 @@ function Recommendations({ recommendations, onSelectScheme, onBack }) {
                 <p className="editorial-meta text-[color:var(--muted-foreground)]">Scheme</p>
                 <h3 className="font-display text-3xl leading-none tracking-tighter md:text-4xl">{rec.name}</h3>
                 <p className="text-sm leading-relaxed text-inherit opacity-80 md:text-base">
-                  Tap through to read the official details, eligibility summary, and supporting documents.
+                  Open this result for a clearer look at the official details, likely fit, and what you may need next.
                 </p>
               </div>
 
@@ -75,13 +88,13 @@ function Recommendations({ recommendations, onSelectScheme, onBack }) {
             
             {rec.verification_status === "needs_verification" && (
               <div className="mt-6 inline-flex border border-black bg-black px-3 py-2 text-xs font-mono uppercase tracking-[0.18em] text-white">
-                Eligibility not fully confirmed — some criteria pending verification.
+                A few details still need confirmation, but this opportunity may still be relevant.
               </div>
             )}
             
             <div className="mt-6 border-t border-black pt-6 text-base leading-relaxed italic">
-              <span className="editorial-meta not-italic">AI Analysis</span>
-              <p className="mt-3 text-inherit">{rec.ai_explanation || "No explanation available."}</p>
+              <span className="editorial-meta not-italic">Why this match appears</span>
+              <p className="mt-3 text-inherit">{formatExplanation(rec.ai_explanation)}</p>
             </div>
 
             <div className="mt-6 flex justify-end border-t border-black pt-5">

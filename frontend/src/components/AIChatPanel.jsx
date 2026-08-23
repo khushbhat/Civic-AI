@@ -3,7 +3,7 @@ import { chatWithScheme } from '../api';
 
 function AIChatPanel({ schemeId, schemeName }) {
   const [messages, setMessages] = useState([
-    { role: 'assistant', text: `Hi! I'm CivicAI. Ask me anything about ${schemeName}.` }
+    { role: 'assistant', text: `Hello. I can help explain ${schemeName} and answer questions about it.` }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ function AIChatPanel({ schemeId, schemeName }) {
       const response = await chatWithScheme(schemeId, userMessage);
       setMessages(prev => [...prev, { role: 'assistant', text: response.answer }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', text: "Sorry, I'm having trouble connecting right now." }]);
+      setMessages(prev => [...prev, { role: 'assistant', text: "I’m having trouble reaching the service right now. Please try again in a moment." }]);
     } finally {
       setLoading(false);
     }
@@ -40,9 +40,9 @@ function AIChatPanel({ schemeId, schemeName }) {
     <div className="editorial-panel editorial-panel-inverse sticky top-8 flex h-[600px] flex-col overflow-hidden">
       <div className="border-b border-white/20 p-4 md:p-5">
         <p className="editorial-kicker text-white/70">Assistant</p>
-        <h3 className="mt-3 font-display text-3xl tracking-tighter">Ask CivicAI</h3>
+        <h3 className="mt-3 font-display text-3xl tracking-tighter">Ask a Question</h3>
         <p className="mt-3 text-xs leading-relaxed text-white/70">
-          Responses are generated only from verified scheme documents for {schemeName}.
+          Responses are based on verified scheme documents for {schemeName}.
         </p>
       </div>
       
@@ -61,7 +61,7 @@ function AIChatPanel({ schemeId, schemeName }) {
         {loading && (
           <div className="flex justify-start">
             <div className="border border-white/25 bg-white px-4 py-3 text-sm text-black">
-              Writing response...
+              Looking up an answer...
             </div>
           </div>
         )}
@@ -74,7 +74,7 @@ function AIChatPanel({ schemeId, schemeName }) {
             type="text" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask a question..."
+            placeholder="Ask about eligibility, documents, or how to apply"
             aria-label="Ask a question about the scheme"
             className="editorial-input flex-grow bg-white text-sm"
           />

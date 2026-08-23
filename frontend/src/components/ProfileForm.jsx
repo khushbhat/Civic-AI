@@ -42,7 +42,7 @@ function ProfileForm({ onSubmitSuccess }) {
       const recs = await submitProfile(formattedData);
       onSubmitSuccess(recs);
     } catch {
-      setError("Failed to fetch recommendations. Ensure the backend is running.");
+      setError("We couldn’t connect to the benefits service just now. Please try again in a moment.");
     } finally {
       setLoading(false);
     }
@@ -53,11 +53,11 @@ function ProfileForm({ onSubmitSuccess }) {
       <div className="editorial-panel p-6 md:p-8 lg:p-10">
         <div className="flex flex-col gap-4 border-b border-black pb-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="editorial-kicker">Step 1 / Intake</p>
-            <h2 className="editorial-display mt-3 text-4xl md:text-5xl">Complete Your Profile</h2>
+            <p className="editorial-kicker">Your Details</p>
+            <h2 className="editorial-display mt-3 text-4xl md:text-5xl">Tell Us About You</h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-[color:var(--muted-foreground)]">
-            Add the minimum facts needed to score the eligibility rules. The form intentionally keeps the surface area small.
+            Share the information that matters most so we can surface benefits that are actually worth your time.
           </p>
         </div>
 
@@ -159,7 +159,7 @@ function ProfileForm({ onSubmitSuccess }) {
 
           <div className="pt-2 md:flex md:justify-end">
             <button type="submit" disabled={loading} className="editorial-button w-full md:w-auto">
-              {loading ? 'Evaluating...' : 'Find Eligible Schemes'}
+              {loading ? 'Checking Options...' : 'Find My Matches'}
             </button>
           </div>
         </form>

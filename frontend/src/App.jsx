@@ -6,34 +6,34 @@ import SchemeDetail from './components/SchemeDetail';
 
 const workflowPanels = [
   {
-    label: '01 / Intake',
-    title: 'Profile by facts, not guesses.',
-    copy: 'The form asks only for the data the eligibility engine can use directly.',
+    label: '01 / Share',
+    title: 'Tell us the basics with confidence.',
+    copy: 'We only ask for details that help us find benefits you may actually qualify for.',
   },
   {
-    label: '02 / Match',
-    title: 'Read the ranking as a document.',
-    copy: 'Eligible, possible, and incomplete matches are separated with strict visual hierarchy.',
+    label: '02 / Review',
+    title: 'See the best matches first.',
+    copy: 'Your options are arranged clearly so the strongest opportunities are easy to spot.',
   },
   {
-    label: '03 / Detail',
-    title: 'Inspect the scheme and question the rules.',
-    copy: 'Each scheme opens into source-backed details with the built-in assistant beside it.',
+    label: '03 / Confirm',
+    title: 'Open any scheme for the full picture.',
+    copy: 'Each result includes clear next steps, documents, and helpful guidance if you need it.',
   },
 ];
 
 const featureBlocks = [
   {
-    value: 'Mono',
-    label: 'pure black, white, and linework',
-  },
-  {
-    value: 'Fast',
-    label: 'instant state changes with no ornamental motion',
-  },
-  {
     value: 'Clear',
-    label: 'distinct screens for profile, matches, and detail',
+    label: 'simple, readable, and easy to trust',
+  },
+  {
+    value: 'Helpful',
+    label: 'friendly guidance at every step',
+  },
+  {
+    value: 'Reliable',
+    label: 'built to keep your search focused and calm',
   },
 ];
 
@@ -68,7 +68,7 @@ function App() {
         <div className="page-frame flex flex-col gap-4 py-5 md:flex-row md:items-end md:justify-between">
           <button type="button" onClick={goHome} className="text-left">
             <span className="editorial-kicker block">CivicAI</span>
-            <span className="mt-2 block font-display text-2xl tracking-tighter md:text-3xl">Monochrome eligibility</span>
+            <span className="mt-2 block font-display text-2xl tracking-tighter md:text-3xl">Helpful benefits guidance</span>
           </button>
 
           <nav className="flex flex-wrap items-center gap-3">
@@ -91,24 +91,24 @@ function App() {
                 <h1 className="editorial-display max-w-5xl text-[clamp(4rem,10vw,10rem)] uppercase">
                   Find
                   <span className="block">Benefits</span>
-                  <span className="block">You Can Claim</span>
+                  <span className="block">That Fit You</span>
                 </h1>
                 <p className="max-w-2xl text-lg leading-relaxed text-[color:var(--muted-foreground)] md:text-xl">
-                  Answer a precise profile form, review ranked matches, and open a scheme detail view with the assistant beside it.
+                  Share a few details, review your matches, and open any scheme for a clear explanation of the next step.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <button type="button" onClick={goProfile} className="editorial-button">
-                    Start Profile
+                    Get Started
                   </button>
                   <button type="button" onClick={goProfile} className="editorial-button editorial-button--outline">
-                    Review Matches
+                    See My Matches
                   </button>
                 </div>
               </section>
 
               <aside className="editorial-panel editorial-panel-inverse overflow-hidden">
                 <div className="border-b border-white/20 p-6 md:p-8">
-                  <p className="editorial-kicker text-white/70">What happens next</p>
+                  <p className="editorial-kicker text-white/70">How it works</p>
                 </div>
                 <div className="grid divide-y divide-white/20">
                   {workflowPanels.map((panel) => (
@@ -126,9 +126,9 @@ function App() {
 
         {currentScreen !== 'home' && (
           <div className="section-rule py-6">
-            <p className="editorial-kicker">Current View</p>
+            <p className="editorial-kicker">Where You Are</p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[color:var(--muted-foreground)] md:text-base">
-              Use the buttons below to return to the previous stage or continue through the flow.
+              Move back whenever you need to adjust your information, or continue to see more detail.
             </p>
           </div>
         )}
@@ -169,7 +169,7 @@ function App() {
       <footer className="section-rule mt-12 bg-white">
         <div className="page-frame flex flex-col gap-3 py-5 md:flex-row md:items-center md:justify-between">
           <p className="editorial-meta">CivicAI</p>
-          <p className="text-sm text-[color:var(--muted-foreground)]">Built for eligibility matching with a stark monochrome editorial system.</p>
+          <p className="text-sm text-[color:var(--muted-foreground)]">A calm, trustworthy way to check benefits and move forward with confidence.</p>
         </div>
       </footer>
     </div>

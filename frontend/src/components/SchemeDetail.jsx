@@ -13,7 +13,7 @@ function DetailSection({ title, children }) {
 
 function DropCapParagraph({ text }) {
   if (!text) {
-    return <p className="editorial-copy text-base">No benefits description available.</p>;
+    return <p className="editorial-copy text-base">A full description is not available right now.</p>;
   }
 
   const firstLetter = text.slice(0, 1);
@@ -53,8 +53,8 @@ function SchemeDetail({ schemeId, onBack }) {
     return (
       <div className="mx-auto max-w-4xl py-16 text-center md:py-24">
         <div className="editorial-panel p-8 md:p-12">
-          <p className="editorial-kicker">Loading</p>
-          <h2 className="editorial-display mt-4 text-4xl md:text-5xl">Loading scheme details...</h2>
+          <p className="editorial-kicker">Preparing Details</p>
+          <h2 className="editorial-display mt-4 text-4xl md:text-5xl">We’re bringing the scheme details together.</h2>
         </div>
       </div>
     );
@@ -64,7 +64,7 @@ function SchemeDetail({ schemeId, onBack }) {
     return (
       <div className="mx-auto max-w-4xl py-16 text-center md:py-24">
         <div className="editorial-panel editorial-panel-inverse p-8 md:p-12">
-          <p className="editorial-kicker text-white/70">Error</p>
+          <p className="editorial-kicker text-white/70">Something Went Wrong</p>
           <h2 className="editorial-display mt-4 text-4xl md:text-5xl">{error}</h2>
         </div>
       </div>
@@ -83,7 +83,7 @@ function SchemeDetail({ schemeId, onBack }) {
 
           <article className="editorial-panel p-6 md:p-8 lg:p-10">
             <div className="border-b border-black pb-6">
-              <p className="editorial-kicker">Step 3 / Detail</p>
+              <p className="editorial-kicker">Scheme Details</p>
               <h2 className="editorial-display mt-3 text-4xl md:text-5xl lg:text-6xl">{scheme.name}</h2>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -101,9 +101,9 @@ function SchemeDetail({ schemeId, onBack }) {
 
             {scheme.verification_status === "needs_verification" && (
               <div className="mt-6 border border-black bg-black p-4 text-sm leading-relaxed text-white">
-                <h4 className="editorial-meta text-white/70">Verification Pending</h4>
+                <h4 className="editorial-meta text-white/70">Needs a Quick Review</h4>
                 <p className="mt-3 text-sm leading-relaxed text-white/85">
-                  Some eligibility criteria for this scheme are pending verification from official sources. Double-check requirements before applying.
+                  A few eligibility details still need confirmation from official sources. Please review the requirements before you apply.
                 </p>
               </div>
             )}

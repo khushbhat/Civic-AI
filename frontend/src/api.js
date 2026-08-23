@@ -1,27 +1,33 @@
 const API_BASE = "http://localhost:8000";
 
+const requestJson = async (url, options, failureMessage) => {
+  try {
+    const res = await fetch(url, options);
+    if (!res.ok) {
+      throw new Error(failureMessage);
+    }
+    return await res.json();
+  } catch {
+    throw new Error(failureMessage);
+  }
+};
+
 export const submitProfile = async (profile) => {
-  const res = await fetch(`${API_BASE}/recommend`, {
+  return await requestJson(`${API_BASE}/recommend`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(profile)
-  });
-  if (!res.ok) throw new Error("Failed to fetch recommendations");
-  return await res.json();
+  }, "We’re having trouble connecting to the benefits service right now.");
 };
 
 export const getSchemeDetails = async (schemeId) => {
-  const res = await fetch(`${API_BASE}/scheme/${schemeId}`);
-  if (!res.ok) throw new Error("Failed to fetch scheme details");
-  return await res.json();
+  return await requestJson(`${API_BASE}/scheme/${schemeId}`, undefined, "We couldn’t load the scheme details right now.");
 };
 
 export const chatWithScheme = async (schemeId, question) => {
-  const res = await fetch(`${API_BASE}/chat`, {
+  return await requestJson(`${API_BASE}/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ scheme_id: schemeId, question })
-  });
-  if (!res.ok) throw new Error("Failed to get chat response");
-  return await res.json();
+  }, "We’re having trouble reaching the assistant right now.");
 };
