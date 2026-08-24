@@ -8,13 +8,13 @@ import re
 from dotenv import load_dotenv
 import google.generativeai as genai
 
+load_dotenv()
+
 from .database import get_db, engine, Base
 from .models import Scheme, SchemeChunk
 from .schemas import Profile, SchemeRecommendation, SchemeDetailResponse, ChatRequest, ChatResponse, EligibilityFieldStatus
 from .eligibility_engine import evaluate_scheme
 from .seed import seed_db, generate_embedding
-
-load_dotenv()
 
 # Configure Gemini
 api_key = os.getenv("GEMINI_API_KEY")
@@ -71,6 +71,26 @@ def get_gemini_explanation(scheme_name: str, status: str, results: List[Eligibil
         print(f"Gemini error: {e}")
         return "Could not generate explanation at this time."
 
+def build_rule_explanation(status: str, results: List[EligibilityFieldStatus]) -> str:
+    if status == "likely_eligible":
+        opening = "Your details match the available eligibility checks for this opportunity."
+    elif status == "possibly_eligible":
+        opening = "This opportunity may suit you, although a few details still need confirmation."
+    else:
+        opening = "This opportunity may be worth reviewing because the available information is incomplete."
+
+    passed = [result.criterion for result in results if result.status == "pass"]
+    unknown = [result.criterion for result in results if result.status == "unknown"]
+    details = []
+    if passed:
+        details.append(f"Matching details include {', '.join(passed)}")
+    if unknown:
+        details.append(f"you may need to confirm {', '.join(unknown)} before applying")
+
+    if not details:
+        return opening
+    return opening + " " + "; ".join(details) + "."
+
 def build_fallback_chat_answer(question: str, chunks: List[SchemeChunk]) -> str:
     if not chunks:
         return "I could not find enough verified information for that scheme right now. Please check the official portal for the latest details."
@@ -104,6 +124,10 @@ def build_fallback_chat_answer(question: str, chunks: List[SchemeChunk]) -> str:
 def startup_initialize_database():
     seed_db()
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 @app.post("/profile", response_model=Profile)
 def create_profile(profile: Profile):
     # Store or validate profile for session
@@ -127,7 +151,7 @@ def recommend_schemes(profile: Profile, db: Session = Depends(get_db)):
         # We only want to process and explain if there's some chance of eligibility
         # Or maybe we show all. The prompt says "ranked list of scheme matches".
         if status in ["likely_eligible", "possibly_eligible", "insufficient_data"]:
-            ai_explanation = get_gemini_explanation(scheme.name, status, results)
+            ai_explanation = build_rule_explanation(status, results)
             
             recommendations.append(SchemeRecommendation(
                 scheme_id=scheme.scheme_id,

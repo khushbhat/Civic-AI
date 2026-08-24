@@ -64,11 +64,25 @@ Use the following values in Render:
 - Build Command: `pip install -r backend/requirements.txt`
 - Start Command: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
 
+After deployment, verify the backend before testing the frontend by opening:
+
+```text
+https://your-backend-name.onrender.com/health
+```
+
+It must return:
+
+```json
+{"status":"ok"}
+```
+
 Add these environment variables in the backend service:
 
 - `DATABASE_URL` = your Render PostgreSQL internal database URL
 - `GEMINI_API_KEY` = your Gemini key
 - `CORS_ORIGINS` = your frontend URL after deployment, for example `https://Civic-AI.onrender.com`
+
+Do not include a trailing slash in either service URL.
 
 ### Frontend Service Settings
 

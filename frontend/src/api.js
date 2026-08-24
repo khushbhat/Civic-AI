@@ -1,14 +1,19 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_BASE = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/$/, '');
 
 const requestJson = async (url, options, failureMessage) => {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 30000);
+
   try {
-    const res = await fetch(url, options);
+    const res = await fetch(url, { ...options, signal: controller.signal });
     if (!res.ok) {
       throw new Error(failureMessage);
     }
     return await res.json();
   } catch {
     throw new Error(failureMessage);
+  } finally {
+    window.clearTimeout(timeout);
   }
 };
 
