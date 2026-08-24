@@ -49,6 +49,52 @@ The runtime flow is:
 - Node.js 18+ recommended
 - A Gemini API key if you want generated explanations and chat responses
 
+## Render Deployment
+
+Use the following values in Render:
+
+- Backend Web Service name: `civicai-backend`
+- Frontend Static Site name: `Civic-AI`
+- PostgreSQL database: the one you already created
+
+### Backend Service Settings
+
+- Root Directory: `.`
+- Environment: `Python 3`
+- Build Command: `pip install -r backend/requirements.txt`
+- Start Command: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+
+Add these environment variables in the backend service:
+
+- `DATABASE_URL` = your Render PostgreSQL internal database URL
+- `GEMINI_API_KEY` = your Gemini key
+- `CORS_ORIGINS` = your frontend URL after deployment, for example `https://Civic-AI.onrender.com`
+
+### Frontend Service Settings
+
+- Root Directory: `frontend`
+- Build Command: `npm install && npm run build`
+- Publish Directory: `dist`
+
+Add this environment variable in the frontend service:
+
+- `VITE_API_URL` = your backend URL, for example `https://civicai-backend.onrender.com`
+
+### Render Setup Order
+
+1. Deploy the backend service first.
+2. Copy the backend URL from Render.
+3. Set `VITE_API_URL` in the frontend service.
+4. Deploy the frontend static site.
+5. Copy the frontend URL and set it in `CORS_ORIGINS` for the backend service.
+6. Redeploy the backend service once after setting `CORS_ORIGINS`.
+
+### Database Note
+
+- Render PostgreSQL already exists in your account.
+- Keep using the internal database URL in `DATABASE_URL`.
+- The backend seeds the database automatically on startup if the tables are empty.
+
 ## Initial Setup
 
 ### 1. Start The Database

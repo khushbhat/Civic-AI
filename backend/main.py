@@ -12,6 +12,7 @@ from .database import get_db, engine, Base
 from .models import Scheme, SchemeChunk
 from .schemas import Profile, SchemeRecommendation, SchemeDetailResponse, ChatRequest, ChatResponse, EligibilityFieldStatus
 from .eligibility_engine import evaluate_scheme
+from .seed import seed_db, generate_embedding
 
 load_dotenv()
 
@@ -22,10 +23,16 @@ if api_key:
 
 app = FastAPI(title="CivicAI API")
 
+def get_cors_origins() -> list[str]:
+    raw_origins = os.getenv("CORS_ORIGINS", "*")
+    if raw_origins.strip() == "*":
+        return ["*"]
+    return [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For hackathon, allow all
-    allow_credentials=True,
+    allow_origins=get_cors_origins(),
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -93,6 +100,10 @@ def build_fallback_chat_answer(question: str, chunks: List[SchemeChunk]) -> str:
         + " If you want, I can help you rephrase the question or point you to the official portal details."
     )
 
+@app.on_event("startup")
+def startup_initialize_database():
+    seed_db()
+
 @app.post("/profile", response_model=Profile)
 def create_profile(profile: Profile):
     # Store or validate profile for session
@@ -154,13 +165,8 @@ def chat_with_scheme(chat_req: ChatRequest, db: Session = Depends(get_db)):
             return ChatResponse(answer=build_fallback_chat_answer(chat_req.question, all_chunks))
 
         try:
-            # Generate embedding for the question
-            emb_result = genai.embed_content(
-                model="models/text-embedding-004",
-                content=chat_req.question,
-                task_type="retrieval_query"
-            )
-            query_embedding = emb_result['embedding']
+            # Use the same deterministic local embedding scheme as the seed process.
+            query_embedding = generate_embedding(chat_req.question)
 
             # Order by distance using the stored vector embeddings.
             top_chunks = db.query(SchemeChunk)

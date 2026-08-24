@@ -1,7 +1,9 @@
 import json
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
+from pathlib import Path
+import hashlib
+import random
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from .database import engine, Base, SessionLocal
@@ -9,27 +11,11 @@ from .models import Scheme, SchemeChunk
 
 load_dotenv()
 
-# Configure Gemini
-api_key = os.getenv("GEMINI_API_KEY")
-if not api_key:
-    print("WARNING: GEMINI_API_KEY not set. Embeddings will not be generated.")
-else:
-    genai.configure(api_key=api_key)
-
 def generate_embedding(text: str) -> list[float]:
-    if not api_key:
-        return [0.0] * 768 # Dummy embedding if no key
-    try:
-        # text-embedding-004 produces 768-dimensional embeddings by default
-        result = genai.embed_content(
-            model="models/text-embedding-004",
-            content=text,
-            task_type="retrieval_document"
-        )
-        return result['embedding']
-    except Exception as e:
-        print(f"Error generating embedding: {e}")
-        return [0.0] * 768
+    seed_bytes = hashlib.sha256(text.encode("utf-8")).digest()
+    seed = int.from_bytes(seed_bytes[:8], "big", signed=False)
+    generator = random.Random(seed)
+    return [generator.uniform(-1.0, 1.0) for _ in range(768)]
 
 def seed_db():
     print("Creating tables...")
@@ -47,7 +33,9 @@ def seed_db():
         print("Database already seeded. Run carefully if you want to overwrite.")
         return
 
-    with open("backend/schemes.json", "r") as f:
+    schemes_path = Path(__file__).resolve().parent / "schemes.json"
+
+    with schemes_path.open("r", encoding="utf-8") as f:
         schemes_data = json.load(f)
         
     for data in schemes_data:
